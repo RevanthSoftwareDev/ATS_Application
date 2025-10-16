@@ -1,0 +1,30 @@
+{
+  "name": "ats_application",
+  "version": "1.0.0",
+  "description": "ATS Application with Node.js frontend",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RevanthSoftwareDev/ATS_Application.git"
+  },
+  "keywords": [
+    "ATS",
+    "Application",
+    "Node.js",
+    "Python"
+  ],
+  "author": "Revanth",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RevanthSoftwareDev/ATS_Application/issues"
+  },
+  "homepage": "https://github.com/RevanthSoftwareDev/ATS_Application#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2"
+  }
+}

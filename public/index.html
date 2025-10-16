@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ATS Application</title>
+</head>
+<body>
+  <h2>ATS Resume Matcher</h2>
+  <form id="resumeForm">
+    <textarea id="jobDescription" placeholder="Paste Job Description" rows="6" cols="50"></textarea><br><br>
+    <input type="file" id="resume" /><br><br>
+    <button type="submit">Analyze Resume</button>
+  </form>
+
+  <h3>Result:</h3>
+  <pre id="result"></pre>
+
+  <script>
+    const form = document.getElementById('resumeForm');
+    const result = document.getElementById('result');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const jd = document.getElementById('jobDescription').value;
+      const file = document.getElementById('resume').files[0];
+
+      if (!jd || !file) {
+        alert("Please provide JD and resume file");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("jobDescription", jd);
+      formData.append("resume", file);
+
+      const response = await fetch("http://127.0.0.1:5000/analyze", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+      result.textContent = JSON.stringify(data, null, 2);
+    });
+  </script>
+</body>
+</html>
